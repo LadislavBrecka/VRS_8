@@ -30,7 +30,6 @@ extern uint64_t disp_time;
 uint64_t saved_time;
 char string_to_display[21] = "LADISLAV_BRECKA_98311";
 uint8_t i = 0;
-double num_to_display = 10;
 
 #define LENGTH 21
 
@@ -60,26 +59,30 @@ int main(void)
   {
 	  if(disp_time > (saved_time + 1000))
 	  {
-//		  displayNumber(num_to_display);
-//		  num_to_display -= 0.10;
-			displayString(	string_to_display[i],
-							string_to_display[i+1],
-							string_to_display[i+2],
-							string_to_display[i+3]);
-			i += 1;
+		  char char1,char2,char3,char4;
 
-			if (i > LENGTH)
-				i = 0;
+		  if (i >= LENGTH)		char1='.';
+		  else					char1 = string_to_display[i];
 
-			saved_time = disp_time;
+		  if (i+1 >= LENGTH)	char2 = '.';
+		  else					char2 = string_to_display[i+1];
 
-			if(num_to_display <= 0)
-			{
-			  num_to_display = 100;
-			}
-	 }
-  }
+		  if (i+2 >= LENGTH)	char3='.';
+		  else					char3 = string_to_display[i+2];
 
+		  if (i+3 >= LENGTH)	char4='.';
+		  else					char4 = string_to_display[i+3];
+
+		  displayString(char1, char2, char3, char4);
+
+		  i += 1;
+
+		  if (i > LENGTH)
+			  i = 0;
+
+		  saved_time = disp_time;
+	  }
+ }
 }
 
 /**
