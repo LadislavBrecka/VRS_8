@@ -57,8 +57,7 @@ int main(void)
 
   while (1)
   {
-	  if(disp_time > (saved_time + 1000))
-	  {
+	  	  LL_mDelay(500);
 		  char char1,char2,char3,char4;
 
 		  if (i >= LENGTH)		char1='.';
@@ -79,9 +78,6 @@ int main(void)
 
 		  if (i > LENGTH)
 			  i = 0;
-
-		  saved_time = disp_time;
-	  }
  }
 }
 
